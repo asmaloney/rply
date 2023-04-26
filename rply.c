@@ -6,15 +6,15 @@
  * This library is distributed under the MIT License. See notice
  * at the end of this file.
  * ---------------------------------------------------------------------- */
-#include <stdio.h>
-#include <ctype.h>
 #include <assert.h>
-#include <string.h>
-#include <limits.h>
+#include <ctype.h>
 #include <float.h>
+#include <limits.h>
 #include <stdarg.h>
-#include <stdlib.h>
 #include <stddef.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 #include "rply.h"
 #include "rplyfile.h"
