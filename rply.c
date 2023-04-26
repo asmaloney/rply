@@ -908,26 +908,26 @@ static int ply_read_element(p_ply ply, p_ply_element element,
 
 static int ply_find_string(const char *item, const char* const list[]) {
     int i;
-    unsigned long itemlen;
     assert(item && list);
-    itemlen = strlen(item);
-    for (i = 0; list[i]; i++)
+    for (i = 0; list[i]; i++) {
+        unsigned long itemlen = strlen(list[i]);
         if (!strncmp(list[i], item, itemlen)) return i;
+    }
     return -1;
 }
 
 static p_ply_element ply_find_element(p_ply ply, const char *name) {
     p_ply_element element;
     int i, nelements;
-    unsigned long namelen;
     assert(ply && name);
-    namelen = strlen(name);
     element = ply->element;
     nelements = ply->nelements;
     assert(element || nelements == 0);
     assert(!element || nelements > 0);
-    for (i = 0; i < nelements; i++)
+    for (i = 0; i < nelements; i++) {
+        unsigned long namelen = strlen(element[i].name);
         if (!strncmp(element[i].name, name, namelen)) return &element[i];
+    }
     return NULL;
 }
 
@@ -935,15 +935,15 @@ static p_ply_property ply_find_property(p_ply_element element,
         const char *name) {
     p_ply_property property;
     int i, nproperties;
-    unsigned long namelen;
     assert(element && name);
-    namelen = strlen(name);
     property = element->property;
     nproperties = element->nproperties;
     assert(property || nproperties == 0);
     assert(!property || nproperties > 0);
-    for (i = 0; i < nproperties; i++)
+    for (i = 0; i < nproperties; i++) {
+        unsigned long namelen = strlen(property[i].name);
         if (!strncmp(property[i].name, name, namelen)) return &property[i];
+    }
     return NULL;
 }
 
