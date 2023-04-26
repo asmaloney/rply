@@ -9,6 +9,10 @@
  * at the end of this file.
  * ---------------------------------------------------------------------- */
 
+#include <stdio.h>
+
+#include "rply.h"
+
 #ifdef __cplusplus
 extern "C" {
 #endif
