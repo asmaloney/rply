@@ -1307,14 +1307,14 @@ static e_ply_storage_mode ply_arch_endian(void) {
 }
 
 static int ply_type_check(void) {
-    assert(sizeof(t_ply_int8) == 1);
-    assert(sizeof(t_ply_uint8) == 1);
-    assert(sizeof(t_ply_int16) == 2);
-    assert(sizeof(t_ply_uint16) == 2);
-    assert(sizeof(t_ply_int32) == 4);
-    assert(sizeof(t_ply_uint32) == 4);
-    assert(sizeof(float) == 4);
-    assert(sizeof(double) == 8);
+    static_assert(sizeof(t_ply_int8) == 1, "expected size of t_ply_int8 to be 1");
+    static_assert(sizeof(t_ply_uint8) == 1, "expected size of t_ply_uint8 to be 1");
+    static_assert(sizeof(t_ply_int16) == 2, "expected size of t_ply_int16 to be 2");
+    static_assert(sizeof(t_ply_uint16) == 2, "expected size of t_ply_uint16 to be 2");
+    static_assert(sizeof(t_ply_int32) == 4, "expected size of t_ply_int32 to be 4");
+    static_assert(sizeof(t_ply_uint32) == 4, "expected size of t_ply_uint32 to be 4");
+    static_assert(sizeof(float) == 4, "expected size of float to be 4");
+    static_assert(sizeof(double) == 8, "expected size of double to be 8");
     if (sizeof(t_ply_int8) != 1) return 0;
     if (sizeof(t_ply_uint8) != 1) return 0;
     if (sizeof(t_ply_int16) != 2) return 0;
